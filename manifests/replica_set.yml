@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: time-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: time-app
+  template:
+    metadata:
+      name: time-app
+      labels:
+        app: time-app
+    spec:
+      containers:
+        - name: time-app
+          image: itsgg/sinatra-docker:0.1
