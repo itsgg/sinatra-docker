@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: time-app
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+        - name: ruby
+          image: ruby:2.7.3
+          command: ["ruby", "-e", 'puts "Current Time is: #{Time.now}"']
+      restartPolicy: Never

@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: time-app
+spec:
+  schedule: '*/1 * * * *'
+  jobTemplate:
+    spec:
+      containers:
+        - name: ruby
+          image: ruby:2.7.3
+          command: ["ruby", "-e", 'puts "Current Time is: #{Time.now}"']
+      restartPolicy: Never
