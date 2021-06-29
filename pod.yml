@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: time-app
+  labels:
+    name: time-app
+spec:
+  containers:
+    - name: time-app
+      image: itsgg/sinatra-docker:0.1
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 8080
